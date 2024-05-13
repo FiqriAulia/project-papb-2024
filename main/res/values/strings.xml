@@ -1,0 +1,35 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">activitypam</string>
+    <string name="mapbox_access_token" translatable="false" tools:ignore="UnusedResources">sk.eyJ1IjoiNjAyMjE0MSIsImEiOiJjbHRuOTdmZHkwM2JvMmpvNjZtNTVwZmV6In0.tqt06Pq1uAH38B1SiWb4ng</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string-array name="list_teman">
+        <item>Mpin DMA</item>
+        <item>Gavin Skibidi</item>
+        <item>Pakri</item>
+        <item>Ucup</item>
+        <item>Kratos</item>
+        <item>Muffin</item>
+        <item>RW 56</item>
+        <item>Driver</item>
+        <item>Riyan</item>
+        <item>NPC-1</item>
+        <item>NPC-2</item>
+        <item>NPC-3</item>
+    </string-array>
+
+    <string-array name="list_subs">
+        <item>"Hai aku sigma loh"</item>
+        <item>"aku sedang tidur"</item>
+        <item>"apasi"</item>
+        <item>"huh?"</item>
+        <item>"info nilai a"</item>
+        <item>"kok fotoku gak aib"</item>
+        <item>"mancing mania mantap"</item>
+        <item>"nyasar"</item>
+        <item>"hai sayang"</item>
+        <item>"kok aqu gantenk bangetz"</item>
+        <item>"kok aqu gantenk bangetz"</item>
+        <item>"kok aqu cantiq bangetz"</item>
+    </string-array>
+
+</resources>
