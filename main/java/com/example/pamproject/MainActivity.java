@@ -1,11 +1,13 @@
 package com.example.pamproject;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -35,15 +37,17 @@ public class MainActivity extends AppCompatActivity {
 
         this.data = new ArrayList<>();
         friendDAO = new FriendDAO(this);
-
-        if (friendDAO.getAllFriends().isEmpty()) {
-
-        }
+//        addInitialFriends();
+//        if (friendDAO.getAllFriends().isEmpty()) {
+//            addInitialFriends();
+//        }
 
         rvfoto = binding.rvfoto;
         rvfoto.setLayoutManager(new GridLayoutManager(this, 5, RecyclerView.HORIZONTAL, false));
         fetchData();
+
     }
+
 
     private void fetchData() {
         ApiService apiService = ApiClient.getClient().create(ApiService.class);
@@ -59,13 +63,14 @@ public class MainActivity extends AppCompatActivity {
                         RvAdapter rvAdapter = new RvAdapter(MainActivity.this, data, new RvInteface() {
                             @Override
                             public void onitemclick(friendlist friend) {
-                                Intent intent = new Intent(MainActivity.this, lihatfototeman.class);
-                                intent.putExtra("imgId", friend.getFoto());
-                                intent.putExtra("namaId", friend.getNama());
-                                intent.putExtra("deskripsiId", friend.getDeskripsi());
+                                LihatFotoTemanFragment fragment = new LihatFotoTemanFragment();
+                                Bundle args = new Bundle();
+                                args.putString("imgId", friend.getFoto());
+                                args.putString("namaId", friend.getNama());
+                                args.putString("deskripsiId", friend.getDeskripsi());
+                                fragment.setArguments(args);
 
-                                Toast.makeText(MainActivity.this, friend.getFoto(), Toast.LENGTH_SHORT).show();
-                                startActivity(intent);
+                                replaceFragment(fragment);
                             }
                         });
                         binding.rvfoto.setAdapter(rvAdapter);
@@ -102,7 +107,6 @@ public class MainActivity extends AppCompatActivity {
 //        Toast.makeText(this, "No friends available", Toast.LENGTH_SHORT).show();
 //    }
 //    }
-
 //private void fetchData() {
 //    friendList = friendDAO.getAllFriends();
 //    if (!friendList.isEmpty()) {
@@ -129,4 +133,11 @@ public class MainActivity extends AppCompatActivity {
 //        Toast.makeText(this, "No friends available", Toast.LENGTH_SHORT).show();
 //    }
 //}
+    private void replaceFragment(Fragment fragment) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_container, fragment); // R.id.fragment_container adalah id dari container layout di activity Anda
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+    }
 }

@@ -21,12 +21,13 @@ public class RvAdapter extends RecyclerView.Adapter<RvAdapter.ViewHolder> {
     private final Context context;
     private final List<friendlist> friendlistLists;
 //    private final List<Friend> friendList;
-    private final RvInteface rvInterface;
 
-        public RvAdapter(Context context, List<friendlist> friendlistLists, RvInteface inteface) {
+    private final RvInteface rvInteface;
+
+    public RvAdapter(Context context, List<friendlist> friendlistLists, RvInteface inteface) {
         this.context = context;
         this.friendlistLists = friendlistLists;
-        this.rvInterface = inteface;
+        this.rvInteface = inteface;
     }
 //    public RvAdapter(Context context, List<Friend> friendList, RvInteface rvInterface) {
 //        this.context = context;
@@ -67,10 +68,11 @@ public class RvAdapter extends RecyclerView.Adapter<RvAdapter.ViewHolder> {
         holder.binding.tvimage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                rvInterface.onitemclick(friendlistLists.get(position));
+                rvInteface.onitemclick(friendlistLists.get(position));
             }
         });
     }
+
 //    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 //        Friend friend = friendList.get(position);
 //        holder.binding.tvnama.setText(friend.getName());
