@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <ImageButton
+        android:id="@+id/imageButtonmap"
+        android:layout_width="74dp"
+        android:layout_height="69dp"
+        android:contentDescription="map"
+        android:background="@null"
+        android:src="@drawable/logo_map"
+        app:layout_constraintBottom_toBottomOf="@+id/imageButtonfoto"
+        app:layout_constraintEnd_toStartOf="@+id/imageButtonfoto"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageButtonfoto"
+        tools:src="@drawable/logo_map"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <ImageButton
+        android:id="@+id/imageButtonfoto"
+        android:layout_width="74dp"
+        android:layout_height="69dp"
+        android:background="@null"
+        android:contentDescription="foto"
+        android:src="@drawable/logo_foto"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.959"
+        tools:src="@drawable/logo_foto"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <ImageButton
+        android:id="@+id/imageButtonteman"
+        android:layout_width="74dp"
+        android:layout_height="69dp"
+        android:contentDescription="liattemen"
+        android:background="@null"
+        android:src="@drawable/logo_liat_temen"
+        app:layout_constraintBottom_toBottomOf="@+id/imageButtonfoto"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageButtonfoto"
+        app:layout_constraintTop_toTopOf="@+id/imageButtonfoto"
+        tools:src="@drawable/logo_liat_temen"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvfoto"
+        android:layout_width="415dp"
+        android:layout_height="733dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:padding="10dp"
+        android:scrollbars="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:itemCount="1"
+        tools:listitem="@layout/rv_layout" />
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
