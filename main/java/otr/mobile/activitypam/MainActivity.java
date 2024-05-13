@@ -9,6 +9,8 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -130,13 +132,25 @@ public class MainActivity extends AppCompatActivity {
                 });
                 realLoco = findViewById(R.id.realLoco);
                 ibList = findViewById(R.id.ibList);
+//                realLoco.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        Intent intent = new Intent(MainActivity.this, zoom.class);
+//                        startActivity(intent);
+//                    }
+//                });
+
                 realLoco.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent(MainActivity.this, zoom.class);
-                        startActivity(intent);
+                        ZoomFragment zoomFragment = new ZoomFragment();
+                        getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.fragment_container, zoomFragment)
+                                .addToBackStack(null)
+                                .commit();
                     }
                 });
+
 
                 ibList.setOnClickListener(new View.OnClickListener() {
                     @Override

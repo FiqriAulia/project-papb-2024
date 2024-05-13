@@ -7,6 +7,15 @@
     android:background="#00ED954B"
     tools:context=".MainActivity">
 
+    <!-- Kontainer Fragment -->
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible"
+        android:translationZ="2dp" />
+
+    <!-- Floating Action Button -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/focusLocation"
         android:layout_width="wrap_content"
@@ -19,12 +28,15 @@
         android:layout_marginBottom="206dp"
         android:src="@drawable/baseline_adjust_24" />
 
+    <!-- MapView -->
     <com.mapbox.maps.MapView
         android:id="@+id/mapView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="visible" />
+        android:visibility="visible"
+        android:translationZ="-1dp" />
 
+    <!-- ImageButton 1 -->
     <ImageButton
         android:id="@+id/btCamera"
         android:layout_width="wrap_content"
@@ -39,6 +51,7 @@
         android:clickable="true"
         app:srcCompat="@drawable/camera" />
 
+    <!-- ImageButton 2 -->
     <ImageButton
         android:id="@+id/btHermanos"
         android:layout_width="wrap_content"
@@ -53,6 +66,7 @@
         android:clickable="true"
         app:srcCompat="@drawable/herman" />
 
+    <!-- ImageButton 3 -->
     <ImageButton
         android:id="@+id/btLocator"
         android:layout_width="74sp"
@@ -67,6 +81,7 @@
         android:clickable="true"
         app:srcCompat="@drawable/location" />
 
+    <!-- ImageButton 4 -->
     <ImageButton
         android:id="@+id/realLoco"
         android:layout_width="wrap_content"
@@ -80,6 +95,7 @@
         android:contextClickable="false"
         app:srcCompat="@drawable/pointer" />
 
+    <!-- ImageButton 5 -->
     <ImageButton
         android:id="@+id/ibList"
         android:layout_width="60dp"
