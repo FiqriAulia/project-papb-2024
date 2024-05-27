@@ -28,23 +28,20 @@ public class LihatFotoTemanFragment extends Fragment {
             String deskripsiId = args.getString("deskripsiId");
 
             if (imgId != null) {
-                byte[] imgBytes = Base64.decode(imgId, Base64.DEFAULT); // Konversi string Base64 menjadi byte array
-                Bitmap bitmap = BitmapFactory.decodeByteArray(imgBytes, 0, imgBytes.length); // Ubah byte array menjadi gambar bitmap
-                binding.imageView4.setImageBitmap(bitmap); // Tampilkan gambar bitmap di ImageView
+                byte[] imgBytes = Base64.decode(imgId, Base64.DEFAULT);
+                Bitmap bitmap = BitmapFactory.decodeByteArray(imgBytes, 0, imgBytes.length);
+                binding.imageView4.setImageBitmap(bitmap);
             }
             binding.tvnama.setText(namaId);
             binding.tvdeskripsi.setText(deskripsiId);
             binding.imageButton2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    requireFragmentManager().popBackStack();                }
+                    requireFragmentManager().popBackStack();
+                }
             });
         }
 
         return rootView;
     }
-
 }
-
-
-

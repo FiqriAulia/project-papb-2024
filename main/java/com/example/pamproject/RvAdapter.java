@@ -18,22 +18,16 @@ import com.example.pamproject.databinding.RvLayoutBinding;
 import java.util.List;
 
 public class RvAdapter extends RecyclerView.Adapter<RvAdapter.ViewHolder> {
+
     private final Context context;
-    private final List<friendlist> friendlistLists;
-//    private final List<Friend> friendList;
+    private final List<friendlist> friendList;
+    private final RvInteface rvInterface;
 
-    private final RvInteface rvInteface;
-
-    public RvAdapter(Context context, List<friendlist> friendlistLists, RvInteface inteface) {
+    public RvAdapter(Context context, List<friendlist> friendList, RvInteface rvInterface) {
         this.context = context;
-        this.friendlistLists = friendlistLists;
-        this.rvInteface = inteface;
+        this.friendList = friendList;
+        this.rvInterface = rvInterface;
     }
-//    public RvAdapter(Context context, List<Friend> friendList, RvInteface rvInterface) {
-//        this.context = context;
-//        this.friendList = friendList;
-//        this.rvInterface = rvInterface;
-//    }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private final RvLayoutBinding binding;
@@ -53,59 +47,30 @@ public class RvAdapter extends RecyclerView.Adapter<RvAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        friendlist k = this.friendlistLists.get(position);
-        holder.binding.tvnama.setText(k.getNama());
-        holder.binding.tvdeskripsi.setText(k.getDeskripsi());
-        if (k.getFoto() != null) {
+        friendlist friend = this.friendList.get(position);
+        holder.binding.tvnama.setText(friend.getNama());
+        holder.binding.tvdeskripsi.setText(friend.getDeskripsi());
+
+        if (friend.getFotoid() != null && !friend.getFotoid().isEmpty()) {
             Glide.with(context)
-                    .load(Base64.decode(k.getFoto(), Base64.DEFAULT))
-                    .apply(new RequestOptions().diskCacheStrategy(DiskCacheStrategy.NONE).skipMemoryCache(true))
+                    .load(Base64.decode(friend.getFotoid(), Base64.DEFAULT))
+                    .apply(new RequestOptions()
+                            .diskCacheStrategy(DiskCacheStrategy.ALL))
                     .into(holder.binding.tvimage);
         } else {
             Toast.makeText(context, "Failed to load image", Toast.LENGTH_SHORT).show();
         }
 
-        holder.binding.tvimage.setOnClickListener(new View.OnClickListener() {
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                rvInteface.onitemclick(friendlistLists.get(position));
+                rvInterface.onItemClick(friendList.get(holder.getAdapterPosition()));
             }
         });
     }
 
-//    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-//        Friend friend = friendList.get(position);
-//        holder.binding.tvnama.setText(friend.getName());
-//        holder.binding.tvdeskripsi.setText(friend.getDescription());
-////        if (friend.getPhoto() != null) {
-////            Glide.with(context)
-////                    .load(friend.getPhoto())
-////                    .apply(new RequestOptions().diskCacheStrategy(DiskCacheStrategy.NONE).skipMemoryCache(true))
-////                    .into(holder.binding.tvimage);
-////        } else {
-////            Toast.makeText(context, "Failed to load image", Toast.LENGTH_SHORT).show();
-////        }
-//        int imageResourceId = context.getResources().getIdentifier(friend.getPhoto(), "drawable", context.getPackageName());
-//        if (imageResourceId != 0) {
-//            // Mengatur gambar ke ImageView jika ID gambar ditemukan
-//            holder.binding.tvimage.setImageResource(imageResourceId);
-//        } else {
-//            Toast.makeText(context, "Failed to load image", Toast.LENGTH_SHORT).show();
-//        }
-//
-//        holder.binding.tvimage.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                rvInterface.onItemClick(friend);
-//            }
-//        });
-//    }
-
     @Override
     public int getItemCount() {
-        return this.friendlistLists.size();
+        return this.friendList.size();
     }
-//    public int getItemCount() {
-//        return friendList.size();
-//    }
 }

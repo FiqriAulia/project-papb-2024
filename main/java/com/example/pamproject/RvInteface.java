@@ -1,7 +1,8 @@
 package com.example.pamproject;
 
 public interface RvInteface {
-    void onitemclick(friendlist friend);
+
+    void onItemClick(friendlist friendlist);
 
 //    void onItemClick(Friend friend);
 }
