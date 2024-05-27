@@ -1,0 +1,7 @@
+<resources>
+    <!-- Define rounded shape for image view -->
+    <style name="RoundedImageView">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">8dp</item> <!-- Set corner radius as per your requirement -->
+    </style>
+</resources>
