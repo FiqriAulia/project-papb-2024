@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp">
+
+    <LinearLayout
+        android:layout_width="140dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/tvimage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:padding="10dp"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/kratos_full" />
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0"
+                app:srcCompat="@drawable/gradiemt" />
+            <TextView
+                android:id="@+id/tvnama"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Kratos"
+                android:textColor="@color/white"
+                android:textSize="32dp"
+                android:textStyle="bold"
+                android:layout_gravity="bottom"
+                android:layout_marginStart="5dp"
+                android:layout_marginBottom="25dp"/>
+            <TextView
+                android:id="@+id/tvdeskripsi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="&quot;Info Nilai A&quot;"
+                android:layout_marginBottom="12dp"
+                android:layout_marginStart="5dp"
+                android:textColor="@color/white"
+                android:textSize="16dp"
+                android:layout_gravity="bottom"/>
+
+
+        </FrameLayout>
+
+
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
